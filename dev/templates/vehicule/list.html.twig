@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}   
+{% block body %}
+            <div id="global">
+                {% if (is_granted('ROLE_EDITOR') ) %}
+                    <div id="btn-add">
+                        <a href = "{{path("add_vehicule")}}"> Ajouter un super véhicule </a>
+                    </div>
+                {% endif %}
+                <li>_________________________________</li>
+                {% include 'selects/select_brand.html.twig' %}
+                <li><br></br></li>
+                {% for vehicule in vehicules %}
+                <div class="list-wheels">
+                    <li>{{vehicule.brand.labelBrand}}</li>
+                    <li>{{vehicule.year}}</li>
+                    <li>{{vehicule.price}} €</li> 
+                    <div class="vehicule_image">
+                        <img style="max-width: 25%;" src="{{ vich_uploader_asset(vehicule, 'imageFile')}}">
+                    </div>
+                    <a href = "{{path("show_vehicule", {id: vehicule.id})}}"> Voir </a>
+                    {% if (is_granted('ROLE_EDITOR') ) %}
+                        <a href = "{{path("edit_vehicule", {id: vehicule.id})}}"> Modifier </a>
+                        <a href = "{{path("delete_vehicule", {id: vehicule.id})}}"> Supprimer </a>
+                    {% endif %}-
+                </div>
+                <li><br></br></li>
+        {% endfor %}
+{% endblock %}

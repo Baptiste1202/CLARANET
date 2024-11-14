@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+        {% block body %}
+            {% for brand in brands %}
+            <div class="list-brand">
+                <li>{{brand.labelBrand}}</li>
+            </div>
+        {% endfor %}
+        {% endblock %}
+

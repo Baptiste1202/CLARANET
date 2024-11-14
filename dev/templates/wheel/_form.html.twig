@@ -1,0 +1,6 @@
+{{ form_start(wheelForm) }}
+    {{ form_row(wheelForm.brand) }}
+    {{ form_row(wheelForm.size) }}
+    <button type="submit">{{ button_label | 
+    default('Ajouter') }} </button>
+{{ form_end(wheelForm) }}

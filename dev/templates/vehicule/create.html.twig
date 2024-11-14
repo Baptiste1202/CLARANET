@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+        {% block body %}
+            <main class="container">
+                <section class="row">
+                    <div class="col-12">
+                        <h1>Ajouter un vehicule</h1>
+                        {% include "vehicule/_form.html.twig" %}
+                    </div>
+                </section>
+                <a href = "{{path("list_vehicules")}}"> Retour à la liste </a>
+            </main>
+        {% endblock %}

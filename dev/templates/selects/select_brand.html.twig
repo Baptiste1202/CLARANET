@@ -1,0 +1,56 @@
+<label>Marque:</label>
+<select id="selectBrand">
+  <option value="" selected disabled>--Choisir une marque--</option>
+  <option value="Peugeot">Peugeot</option>
+  <option value="Renault">Renault</option>
+  <option value="Porsche">Porsche</option>
+  <option value="Audi">Audi</option>
+  <option value="BMW">BMW</option>
+</select>
+
+<script>
+let menu = document.getElementById("selectBrand");
+menu.addEventListener("click",findBy);
+
+function findBy(){
+    console.log(menu.value);
+    
+    let myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Test");
+        }, 1000);
+    });
+
+    myPromise.then( result => {
+    console.log(result);
+    })
+    
+    let content = {
+        body: JSON.stringify(body),
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    let request = fetch(menu.value, content);
+
+    request.then( response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error ("Requete échouée " + response.status);
+        }
+    })
+    .then( data => {
+        console.log("marque: " + data.plus);
+    })
+    
+
+}
+
+
+
+
+
+</script>

@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+        {% block body %}
+        <main class="container">
+            <section class="row">
+                <div class="col-12">
+                    <h1>Modifier un vehicule</h1>
+                    {% include "vehicule/_form.html.twig" with {'button_label': 'Modifier'} %}
+                </div>
+            </section>
+        </main>
+        {% endblock %}

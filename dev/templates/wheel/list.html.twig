@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+        <div id="global">
+            {% if (is_granted('ROLE_EDITOR') ) %}
+                <div id="btn-add">
+                    <li><a href = "{{path("add_wheel")}}"> Ajouter des super pneus </a></li>
+                </div>
+            {% endif %}
+            <li>_________________________________</li>
+            <li><br></br></li>
+            {% for wheel in wheels %}
+                <div class="list-wheels">
+                    <li>{{wheel.brand.labelBrand}}</li>
+                    <li>{{wheel.size}}</li>
+                    <a href = "{{path("show_wheel", {id: wheel.id})}}"> Voir </a>
+                    {% if (is_granted('ROLE_EDITOR') ) %}
+                        <a href = "{{path("edit_wheel", {id: wheel.id})}}"> Modifier </a>
+                        <a href = "{{path("delete_wheel", {id: wheel.id})}}"> Supprimer </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        <br></br>        
+        </div>  
+{% endblock %}

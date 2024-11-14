@@ -1,0 +1,7 @@
+<h1> Activation de votre compte Canard coincoin.com ! </h1>
+<p> Salut canard <strong> {{ user.username }} </strong>! </p>
+<p> Pour activer votre compte Canard coicoin.com, cliques sur le lien ci dessous <p>
+
+{{ token }}
+
+<p><a href="{{ absolute_url(path('verify_user',{token: token})) }}"> Lien </a><p>
