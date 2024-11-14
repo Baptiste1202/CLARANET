@@ -62,7 +62,6 @@ class JWTService
         $header = json_decode(base64_decode($array[0]), true);
 
         return $header; 
-
     }
 
     public function getPayload(string $token)
@@ -86,7 +85,7 @@ class JWTService
 
     public function isValid(string $token): bool
     {
-        return true;
+        return true; // passage en force
         /* TODO : faire matcher la regex 
         return preg_match(
             '/^[a-zA-Z0-9\-\_\=].[a-zA-Z0-9\-\_\=].[a-zA-Z0-9\-\_\=]+$/',

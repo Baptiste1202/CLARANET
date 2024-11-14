@@ -14,16 +14,7 @@ class OptionnelFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        /*
-        ->add('labelOption', type:EntityType::class, options:[
-            'label' => 'Option',
-            'class' => Optionnel::class,
-            'choice_label' => function (Optionnel $option){
-                return $option->getLabelOption();
-            }
-        ])
-        */
-        ->add('labelOption', type:TextType::class)
+            ->add('labelOption', type:TextType::class)
         ;
     }
 

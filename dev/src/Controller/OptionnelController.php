@@ -46,7 +46,6 @@ class OptionnelController extends AbstractController
                 'No product found for id ' . $id
             );
         }
-
         return $this->render('optionnel/list.html.twig', ['optionnels' => $optionnel]);
     }
 
@@ -74,6 +73,7 @@ class OptionnelController extends AbstractController
             // redirect
             // return $this->redirectToRoute('index');
         }
+
         return $this->render('optionnel/create.html.twig', compact('optionnelForm'));
     }
 
@@ -101,6 +101,7 @@ class OptionnelController extends AbstractController
 
             return $this->redirectToRoute('list_optionnels');
         }
+        
         return $this->render('optionnel/edit.html.twig', compact('optionnelForm'));
     }
 

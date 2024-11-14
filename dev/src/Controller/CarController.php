@@ -1,10 +1,7 @@
 <?php
 
-// src/Controller/ProductController.php
 namespace App\Controller;
 
-use App\Entity\Brand;
-use App\Entity\User;
 use App\Entity\Vehicule;
 use App\Repository\VehiculeRepository;
 use App\Repository\VehiculeRepositoryInterface;
@@ -18,8 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 // ...
 
@@ -66,8 +61,6 @@ class CarController extends AbstractController
     #[IsGranted('ROLE_EDITOR')]
     public function add(Request $request, EntityManagerInterface $em, SluggerInterface $slugger, Security $security): Response
     {
-
-        // $this->denyAccessUnlessGranted('ROLE_RENTER');
 
         //Create a new vehicule
         $vehicule = new Vehicule();
@@ -132,6 +125,7 @@ class CarController extends AbstractController
 
             return $this->redirectToRoute('list_vehicules');
         }
+
         return $this->render('vehicule/edit.html.twig', compact('vehiculeForm'));
     }
 
@@ -139,8 +133,7 @@ class CarController extends AbstractController
     #[IsGranted('ROLE_EDITOR')]
     public function delete(Vehicule $vehicule, EntityManagerInterface $em): Response
     {
-
-        if($vehicule){
+        if ($vehicule) {
             $this->denyAccessUnlessGranted('vehicule.is_creator', $vehicule);
         }
 

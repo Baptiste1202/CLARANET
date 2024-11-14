@@ -47,8 +47,7 @@ class VehiculesFormType extends AbstractType
                 'constraints' => [
                     new Range(min: 50)
                 ]
-            ]
-            )
+            ])
             ->add('categorie', options:[
                 'label' => 'Catégorie'
             ])
@@ -71,10 +70,7 @@ class VehiculesFormType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'empty_data' => ''
-            ])
-
-            
-            
+            ])  
         ;
     }
 

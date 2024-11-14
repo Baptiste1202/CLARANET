@@ -29,7 +29,6 @@ class BrandController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function showAllBrand(): Response
     {
-
         $brands = $this->brandRepository->findAll();
 
         if (!$brands) {
@@ -66,7 +65,6 @@ class BrandController extends AbstractController
         //Create the form
         $brandForm = $this->createForm(BrandFormType::class, $brand);
 
-        //
         $brandForm->handleRequest($request);
 
         if ($brandForm->isSubmitted() && $brandForm->isValid()) {
@@ -105,6 +103,7 @@ class BrandController extends AbstractController
 
             return $this->redirectToRoute('list_brands');
         }
+
         return $this->render('editbrand.html.twig', compact('brandForm'));
     }
 

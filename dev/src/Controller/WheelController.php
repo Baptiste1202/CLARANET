@@ -29,7 +29,6 @@ class WheelController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function showAllWheel(): Response
     {
-
         $wheels = $this->wheelRepository->findAll();
 
         if (!$wheels) {
@@ -70,7 +69,6 @@ class WheelController extends AbstractController
         $wheelForm->handleRequest($request);
 
         if ($wheelForm->isSubmitted() && $wheelForm->isValid()) {
-
             //stock data
             $em->persist($wheel);
             $em->flush();
@@ -80,6 +78,7 @@ class WheelController extends AbstractController
             // redirect
             // return $this->redirectToRoute('index');
         }
+
         return $this->render('wheel/create.html.twig', compact('wheelForm'));
     }
 
@@ -106,6 +105,7 @@ class WheelController extends AbstractController
 
             return $this->redirectToRoute('list_wheels');
         }
+        
         return $this->render('wheel/edit.html.twig', compact('wheelForm'));
     }
 

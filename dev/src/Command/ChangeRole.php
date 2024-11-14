@@ -44,7 +44,7 @@ class ChangeRole extends Command
             return Command::FAILURE;
         }
 
-        //get user's roles and check if role already exists
+        //get user roles and check if role already exists
         $roles = $user->getRoles();
         if (!in_array($role, $roles)) {
             $output->writeln("1. Le rôle n'est pas attribué");
@@ -53,6 +53,7 @@ class ChangeRole extends Command
             $output->writeln("1. L'utilisateur a déjà ce rôle.");
         }
 
+        // set the role to the user
         $user->setRoles($roles);
         $this->entityManager->flush();
 
